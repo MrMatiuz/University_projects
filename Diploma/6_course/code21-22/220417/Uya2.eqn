@@ -1,0 +1,13 @@
+#!MC 1410
+$!AlterData 
+  Equation = '{X} = {X} + 0.400001'
+$!AlterData 
+  Equation = '{Re_ref}=1.e5'
+$!AlterData 
+  Equation = '{Rex}={X}*{Re_ref}'
+$!AlterData 
+  Equation = '{U_ref}=sqrt(1.4)*0.2'
+$!AlterData 
+  Equation = '{Uya}=0.332*{U_ref}*sqrt({Rex})/{X}'
+$!AlterData 
+  Equation = '{Uy}=ddy({U})'

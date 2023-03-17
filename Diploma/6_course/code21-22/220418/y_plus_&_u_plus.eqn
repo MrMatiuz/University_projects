@@ -1,0 +1,17 @@
+#!MC 1410
+$!AlterData  [1-2]
+  Equation = '{Mu_ref} = 6 * sqrt(1.4) / 10000000'
+$!AlterData  [1-2]
+  Equation = '{Nu_m} = ({P} / {D})**(0.76)'
+$!AlterData  [1-2]
+  Equation = '{Mu_m} = {Mu_ref} * {Nu_m}'
+$!AlterData  [1-2]
+  Equation = '{Uy}=ddy({U})'
+$!AlterData  [1-2]
+  Equation = '{Tw} = {Nu_m} * {Uy}'
+$!AlterData  [1-2]
+  Equation = '{Nu_star} = sqrt({Tw} / {d})'
+$!AlterData  [1-2]
+  Equation = '{u_plus} = {U} / {Nu_star}'
+$!AlterData  [1-2]
+  Equation = '{y_plus} = {y} * {Nu_star} / {Nu_m}'

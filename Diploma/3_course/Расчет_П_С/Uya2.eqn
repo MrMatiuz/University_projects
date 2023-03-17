@@ -1,0 +1,9 @@
+#!MC 1410
+$!ALTERDATA 
+  EQUATION = '{Re_ref}=1.e5'
+$!ALTERDATA 
+  EQUATION = '{Rex}={X}*{Re_ref}'
+$!ALTERDATA 
+  EQUATION = '{U_ref}=sqrt(1.4)*0.2'
+$!ALTERDATA 
+  EQUATION = '{Uya}=0.332*{U_ref}*sqrt({Rex})/{X}'

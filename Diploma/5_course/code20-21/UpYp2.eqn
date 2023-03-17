@@ -1,0 +1,10 @@
+#!MC 1200
+# Created by Tecplot 360 build 12.1.0.6712
+$!ALTERDATA 
+  EQUATION = '{mum}=7.099e-7*({P}/{D})**0.76'
+$!ALTERDATA 
+  EQUATION = '{Ut}=0.232'
+$!ALTERDATA 
+  EQUATION = '{Up}={U}/{Ut}'
+$!ALTERDATA 
+  EQUATION = '{Yp}={Ut}*{Y}*{D}/{mum}'

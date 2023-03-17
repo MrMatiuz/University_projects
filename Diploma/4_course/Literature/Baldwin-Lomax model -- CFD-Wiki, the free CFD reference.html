@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0051)https://www.cfd-online.com/Wiki/Baldwin-Lomax_model -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Baldwin-Lomax model -- CFD-Wiki, the free CFD reference</title>
+<script language="JavaScript">
+   function body_onload_funcs() {
+		  P7_initPM(1,3,0,-5,0);
+		  <?php if(['body_onload']) { ('body_onload'); }?>
+		}
+</script>
+<link rel="shortcut icon" href="https://www.cfd-online.com/favicon.ico" type="image/x-icon">
+<script type="text/javascript" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/p7popmenu.js.Без названия"></script><style type="text/css">
+#p7PMnav ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+#p7PMnav ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul ul {position:absolute;left:-9000px;}
+</style>
+<style type="text/css" media="screen">
+<!--
+    @import url("/p7pm/cfd_online_mainmenu.css");
+		@import url("/CSS/cfdonline.css");
+-->
+</style>
+
+<meta name="generator" content="MediaWiki 1.16.5">
+<link rel="shortcut icon" href="https://www.cfd-online.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.cfd-online.com/W/opensearch_desc.php" title="CFD-Wiki (en)">
+<link title="Creative Commons" type="application/rdf+xml" href="https://www.cfd-online.com/W/index.php?title=Baldwin-Lomax_model&amp;action=creativecommons" rel="meta">
+<link rel="copyright" href="https://www.cfd-online.com/Wiki/CFD-Wiki:Copyrights">
+<link rel="alternate" type="application/atom+xml" title="CFD-Wiki Atom feed" href="https://www.cfd-online.com/W/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/shared.css" media="screen">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/commonPrint.css" media="print">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/main.css" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/W/skins/cfdonline/IE50Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/W/skins/cfdonline/IE55Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/W/skins/cfdonline/IE60Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/W/skins/cfdonline/IE70Fixes.css?270" media="screen" /><![endif]-->
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/index.php">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/index(1).php" media="print">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/index(2).php">
+<link rel="stylesheet" href="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/index(3).php">
+<script>
+var skin="cfdonline",
+stylepath="/W/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/Wiki/$1",
+wgScriptPath="/W",
+wgScriptExtension=".php",
+wgScript="/W/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="https://www.cfd-online.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Baldwin-Lomax_model",
+wgTitle="Baldwin-Lomax model",
+wgAction="view",
+wgArticleId=1374,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=13693,
+wgVersion="1.16.5",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "CFD-Wiki", "5": "CFD-Wiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cfd-wiki": 4, "cfd-wiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="CFD-Wiki",
+wgCategories=["Turbulence models"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/wikibits.js.Без названия"></script>
+<script src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/ajax.js.Без названия"></script>
+<script src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/index(4).php"></script>
+
+</head>
+<body onload="P7_initPM(1,3,0,-5,0)" class="mediawiki ltr ns-0 ns-subject page-Baldwin-Lomax_model skin-cfdonline">
+<!-- CFD Online addition below -->
+   <!--
+Google Analytics disabled by Jonas 2021-07-03
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22128555-1', 'cfd-online.com');
+  ga('send', 'pageview');
+
+</script>-->
+<table id="logo_and_banner" width="98%" border="0" cellpadding="2" cellspacing="0" summary="Logo and Banner Table Layout Table"> 
+  <tbody><tr> 
+    <td align="left" valign="top"> 
+      <table id="logo_and_banner" width="275" border="0" cellspacing="0" cellpadding="0"> 
+        <tbody><tr> 
+          <td rowspan="2"><img alt="CFD Online Logo" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/new_cfdonline_logo_main_star.gif" width="60" height="78"></td> 
+          <td><img alt="CFD Online URL" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/new_cfdonline_logo_main_name.gif" width="215" height="49"></td> 
+        </tr> 
+        <tr> 
+          <td colspan="2"><a href="https://www.cfd-online.com/"><img src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/new_cfdonline_logo_home.gif" alt="www.cfd-online.com" width="215" height="29" longdesc="https://www.cfd-online.com" style="border-style: none" border="0"></a></td> 
+        </tr> 
+      </tbody></table> 
+    </td> 
+    <td align="center" valign="middle" nowrap="nowrap"><!-- #BeginLibraryItem "/Library/Banner Large.lbi" --> 
+      <script language="JavaScript" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/ads.pl.Без названия" type="text/javascript">
+</script><a href="https://www.cfd-online.com/WebAdverts/ads.pl?banner=pdc;time=1650292232;zone=regular" target="_top"><img src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/pdc.gif" height="60" width="468" alt="GridPro, Program Development Company" border="0"></a> 
+      <noscript> 
+      <a href= "https://www.cfd-online.com/WebAdverts/ads.pl?banner=NonSSI;page=navigation" target="_top"> <img src="https://www.cfd-online.com/WebAdverts/ads.pl?page=navigation" 
+		alt="Click Here!" width="468" height="60" border="0" align="middle" /> </a> 
+      </noscript> 
+      <!-- #EndLibraryItem -->
+    </td> 
+<td align="right" valign="top">
+<font face="arial" size="2">[<a href="https://www.cfd-online.com/About/sponsors.php">Sponsors</a>]</font>
+</td>
+  </tr> 
+</tbody></table>
+<table id="main_menu" width="98%" border="0" cellpadding="1" cellspacing="0" summary="Main Menu Table"> 
+<tbody><tr> 
+<td> 
+<ul id="p7PMnav"> 
+<li id="mm"><a href="https://www.cfd-online.com/">Home</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forum/news.cgi" class="p7PMtrg">News</a> 
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forum/news.cgi">Index</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forum/news.cgi?form=0">Post News</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forum/news.cgi?subscribe">Subscribe/Unsubscribe</a></li>
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/" class="p7PMtrg">Forums</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/main/">Main CFD Forum</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/system-analysis">System Analysis</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/structural-mechanics">Structural Mechanics</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/electromagnetics">Electromagnetics</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/cfd-freelancers">CFD Freelancers</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/hardware/">Hardware Forum</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/lounge/">Lounge</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/software/" class="p7PMtrg">Software User Forums</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/ansys/" class="p7PMtrg">ANSYS</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/cfx/">CFX</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/fluent/">FLUENT</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/ansys-meshing/">Meshing &amp; Geometry</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/autodesk-simulation-cfd/">Autodesk</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/avl-fire/">AVL FIRE</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/converge/">CONVERGE</a></li>
+<!-- <li id="mm"><a href="/Forums/edge">Edge</a></li>-->
+<li id="mm"><a href="https://www.cfd-online.com/Forums/floefd-floworks-flotherm">FloEFD &amp; FloTHERM</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/flow-3d/">FLOW-3D</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/numeca/">NUMECA</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam/" class="p7PMtrg">OpenFOAM</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-news-announcements/">News &amp; Announcements</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-installation/">Installation</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-meshing/">Meshing</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-pre-processing/">Pre-Processing</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-solving/">Solving</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-post-processing/">Post-Processing</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-programming-development/">Programming</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-verification-validation/">Verification &amp; Validation</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-community-contributions/">Community Contributions</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-journal/">Journal</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/openfoam-bugs/">Bugs</a></li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/phoenics/">Phoenics</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/reef3d/">REEF3D</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/reef3d-news-announcements/">News &amp; Announcements</a></li>
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/siemens/" class="p7PMtrg">Siemens</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/star-ccm/">STAR-CCM+</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/star-cd/">STAR-CD</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/su2/" class="p7PMtrg">SU2</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/su2-news-announcements/">News &amp; Announcements</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/su2-installation/">Installation</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/su2-shape-design/">Shape Design</a></li> 
+</ul>
+</li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/pre-processors/" class="p7PMtrg">Pre-processors</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/ansa/">ANSA</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/engrid/">enGrid</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/gridpro/">GridPro</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/pointwise/">Pointwise</a></li> 
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/post-processors/" class="p7PMtrg">Post-Processors</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/ensight/">EnSight</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/fieldview/">FieldView</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/paraview/">ParaView</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/tecplot/">Tecplot</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/special-topics/" class="p7PMtrg">Special Topics</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/mesh-generation/">Mesh Generation</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/visualization/">Visualization</a></li>  
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/community/" class="p7PMtrg">CFD Online Community</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Forums/site-news-announcements/">Site News</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/site-help-feedback-discussions/">Site Help &amp; Discussions</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Forums/cfd-wiki/">CFD-Wiki</a></li> 
+</ul>
+</li> 
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Main_Page" class="p7PMtrg">Wiki</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Introduction">Introduction</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Special:Recentchanges">Recent Changes</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Reference_section" class="p7PMtrg">Reference Section</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Fluid_dynamics">Fluid Dynamics</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Turbulence_modeling">Turbulence Modeling</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Numerical_methods">Numerical Methods</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Meshing">Meshing</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Special_topics" class="p7PMtrg">Special Topics</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Aero-acoustics_and_noise">Aero-Acoustics</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Combustion">Combustion</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Parallel_computing">Parallel Computing</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Turbulence">Turbulence</a></li> 
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Application_areas" class="p7PMtrg">Application Areas</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Aerospace">Aerospace</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Automotive">Automotive</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Turbomachinery">Turbomachinery</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Best_practice_guidelines" class="p7PMtrg">Best Practice Guides</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Best_practice_guidelines_for_automotive_CFD">Automotive CFD</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Best_practice_guidelines_for_turbomachinery_CFD">Turbomachiney CFD</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Best_practice_guidelines_for_heat_transfer_simulations">Heat Transfer CFD</a></li> 
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Validation_and_test_cases">Validation Cases</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Codes">Codes</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Source_code_archive">Source Code Archive</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/FAQ%27s" class="p7PMtrg">FAQ's</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Ansys_FAQ">Ansys</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CHAM_FAQ">CHAM</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CONVERGE_FAQ">CONVERGE</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Fluent_FAQ">Fluent</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Metacomp_FAQ">Metaconp</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/MeteoDyn_FAQ">MeteoDyn</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Siemens_FAQ">Siemens</a></li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/History_of_CFD">History of CFD</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:About" class="p7PMtrg">About CFD-Wiki</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/Help:Contents">Help</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:FAQ">FAQ</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Contribute_something_today">Getting Started</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Community_Portal">Community Portal</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Donate_texts">Donate Texts</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Donated_texts">Donated Texts</a></li>
+</ul>
+</li>
+</ul>
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/" class="p7PMtrg">Links</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/whatsnew.html">What's New</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/intro.html">Introduction</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html" class="p7PMtrg">Modeling &amp; Numerics</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#turbulence">Turbulence</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#combustion">Combustion</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#discr">Discretization Schemes</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#solvers">Solvers</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#multigrid">Multigrid Methods</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#fem">Finite Element Methods</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#cartesian">Cartesian Methods / AMR</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/modeling_and_numerics.html#numana">Numerial Analysis</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/meshing.html" class="p7PMtrg">Mesh Generation</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/meshing.html#general">General Resources</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/meshing.html#projects">Selected Projects</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/meshing.html#companies">Companies</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/programming.html" class="p7PMtrg">Programming &amp; Dev.</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/programming.html#dataformats">Data Formats</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/programming.html#libraries">Software Libraries</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html#num">Numerical Software</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/programming.html#parallel">Parallel Computing</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/programming.html#general">General Sites</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html" class="p7PMtrg">Software</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html#cfd">Fluid Dynamics</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html#mesh">Mesh Generation</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html#vis">Visualization</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/soft.html#com">Commercial CFD Codes</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html" class="p7PMtrg">Hardware</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#benchmarks">Benchmarks</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#news">News and Reviews</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#vendors">Hardware Vendors</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#cloud">Clouds</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#clusters">Clusters</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#gpgpu">GPGPU</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/hard.html#misc">Misc</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/refs.html" class="p7PMtrg">References</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/refs.html#validation">Validation Cases</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/refs.html#airfoils">Airfoils</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/refs.html#consts">Material Properties</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/refs.html#glossaries">Glossaries</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html" class="p7PMtrg">Finding Documents</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html#preprints">Preprints Online</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html#papers">Papers &amp; Reports</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html#books">Books</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html#journals">Journals</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/finddocs.html#publ">Publishers</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html" class="p7PMtrg">Online Tools</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#units">Unit Converters</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#calcs">Calculators</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#yplus">y+ Estimation</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#compressible">Compressible Flow</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#heat">Heat Transfer</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#airfoils">Airfoil Generators</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#simple">Simple Cases</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#combustion">Combustion</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/tools.html#proc">Cycles &amp; Processes</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html" class="p7PMtrg">Online Books &amp; Guides</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#cfdintros">CFD Introductions</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#books">Books</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#bestpractice">Best Practice Guidelines</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#aero">Fluid &amp; Aero Dynamics</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#seminars">Seminars</a></li>  
+<li id="mm"><a href="https://www.cfd-online.com/Links/onlinedocs.html#encyclopedias">Encyclopedias</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html" class="p7PMtrg">Social Media</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#forums">Discussion Forums</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#blogs">Blogs</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#twitter">Twitter</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#youtube">YouTube</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#facebook">Facebook</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#linkedin">LinkedIn</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#podcasts">Podcasts</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#usenet">Usenet Newsgroups</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#mail_lists">Mailing Lists</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#chat">Chats</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/cmc.html#news">News</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/education.html" class="p7PMtrg">Education</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/education.html#cfdprogrammes">CFD Programmes</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/education.html#onlinelabs">Online Labs</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/education.html#onlinecourses">Online Courses</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/education.html#coursematerial">Course Material</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/jobs.html" class="p7PMtrg">Jobs</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/jobs.html#cfd">CFD Job Resources</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/jobs.html#orgs">Companies &amp; Orgs.</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/jobs.html#general">General Resources</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/events.html" class="p7PMtrg">Events</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/events.html#calendars">Event Calendars</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/events.html#orgs">Specific Organizations</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/events.html#vendors">Vendor Events Lists</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/misc.html" class="p7PMtrg">Misc</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/misc.html#picts">Pictures and Movies</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/misc.html#fun">Fun</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Links/links.html">Links to Links</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/suggest_link.php">Suggest New Link</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Links/about.html">About this Section</a></li>
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/" class="p7PMtrg">Jobs</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/jobform.php">Post Job Ad</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php">List All Jobs</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php" class="p7PMtrg">List Jobs by Type</a> 
+<ul><li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Job%20in%20Industry">Job in Industry (44)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Job%20in%20Academia">Job in Academia (34)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Contract%20Work">Contract Work (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=PostDoc%20Position">PostDoc Position (36)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=PhD%20Studentship">PhD Studentship (56)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Internship">Internship (4)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Diploma%20Work">Diploma Work (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?category=Misc">Misc (1)</a></li>
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listbyloc.php" class="p7PMtrg">List Jobs by Location</a> 
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?continent=Asia" class="p7PMtrg">Asia</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=China">China (13)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=India">India (16)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Israel">Israel (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Singapore">Singapore (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=South%20Korea">South Korea (5)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Turkey">Turkey (4)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=United%20Arab%20Emirates">United Arab Emirates (3)</a></li>
+</ul></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?continent=Europe" class="p7PMtrg">Europe</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Austria">Austria (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Belgium">Belgium (5)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Cyprus">Cyprus (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=France">France (20)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Germany">Germany (19)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Ireland">Ireland (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Italy">Italy (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Luxembourg">Luxembourg (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Netherlands">Netherlands (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Norway">Norway (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Spain">Spain (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Sweden">Sweden (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=United%20Kingdom">United Kingdom (12)</a></li>
+</ul></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?continent=North%20America" class="p7PMtrg">North America</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Canada">Canada (4)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=United%20States">United States (56)</a></li>
+</ul></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?continent=Oceania" class="p7PMtrg">Oceania</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Australia">Australia (1)</a></li>
+</ul></li>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?continent=South%20America" class="p7PMtrg">South America</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/listjobs.php?country=Chile">Chile (1)</a></li>
+</ul></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Jobs/search.php">Search Job Ads</a></li> 
+</ul> 
+</li> 
+<!--
+<li id="mm"><a href="/Books/" class="p7PMtrg">Books</a>
+<ul>
+<li id="mm"><a href="/Books/browse_subjects.php">Browse Categories</a></li>
+<li id="mm"><a href="/Books/search_books.php">Search</a></li>
+<li id="mm"><a href="/Books/book_form.php">Submit a Book</a></li>
+<li id="mm"><a href="/Books/help.php">Help</a></li>
+</ul>
+</li> 
+-->
+<li id="mm"><a href="https://www.cfd-online.com/Events/" class="p7PMtrg">Events</a>
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Events/post.php">Post New Event</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php">List All Events</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php" class="p7PMtrg">List Events by Type</a> 
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_type_id=1">Conferences (8)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_type_id=2">Workshops (3)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_type_id=3">Courses (3)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_type_id=6">Online Events (2)</a></li>
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Events/listbyloc.php" class="p7PMtrg">List Events by Location</a>
+<ul> 
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?continent=Africa" class="p7PMtrg">Africa</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=74">Algeria (2)</a></li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?continent=Asia" class="p7PMtrg">Asia</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=25">India (3)</a></li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?continent=Europe" class="p7PMtrg">Europe</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=5">Belgium (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=19">France (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=20">Germany (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=39">Netherlands (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=43">Poland (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=53">Spain (2)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=54">Sweden (1)</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=61">United Kingdom (1)</a></li>
+</ul>
+</li>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?continent=North%20America" class="p7PMtrg">North America</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Events/list.php?event_country_id=62">United States (1)</a></li>
+</ul></li>
+ 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Tools/" class="p7PMtrg">Tools</a> 
+<ul>
+<li id="mm"><a href="javascript:void(window.open(&#39;/Tools/rpncalc.html&#39;,&#39;RPNCalc&#39;,&#39;status=0,scrollbars=0,resizable=0,width=400,height=365&#39;))">RPN Calculator</a></li>
+<li id="mm"><a href="javascript:void(window.open(&#39;/Tools/scicalc.html&#39;,&#39;SciCalc&#39;,&#39;status=0,scrollbars=0,resizable=0,width=250,height=345&#39;))">Scientific Calculator</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Tools/unit_conversion.php">Unit Conversion</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Tools/yplus.php">Y+ Estimation</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/Tools/turbulence.php">Turbulence Properties</a></li> 
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/" class="p7PMtrg">Feeds</a>
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/news.php">News</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/blogs.php">Blogs</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/vendors.php">Vendors</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/jobs.php">Jobs</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Feeds/journals.php">Journals</a></li>
+</ul> 
+</li> 
+<li id="mm"><a href="https://www.cfd-online.com/About/" class="p7PMtrg">About</a> 
+<ul>
+<li id="mm"><a href="https://www.cfd-online.com/About/">About CFD Online</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/About/privacy_policy.php">Privacy Policy</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/About/contacts.php">Contacts &amp; Feedback</a></li>
+<li id="mm"><a href="https://www.cfd-online.com/Stats/">Web Server Statistics</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/About/sponsors.php">List of Sponsors</a></li> 
+<li id="mm"><a href="https://www.cfd-online.com/About/sponsor.php">Advertising on this Site</a></li> 
+</ul> 
+</li> 
+
+<li id="mm"><a href="https://www.cfd-online.com/Search/">Search</a></li> 
+<!--[if lte IE 6]><style>#p7PMnav a{height:1em;}#p7PMnav li{height:1em;}#p7PMnav ul li{float:left;clear:both;width:100%}</style><![endif]--> 
+<!--[if IE 6]><style>#p7PMnav ul li{clear:none;}</style><![endif]--> 
+</ul> 
+</td> 
+</tr> 
+</tbody></table> 
+
+<div id="pageContent">
+   <div id="pmmcrumb2"><a id="pmmcr" href="https://www.cfd-online.com/">Home</a> &gt; <a href="https://www.cfd-online.com/Wiki/">Wiki</a> &gt; 
+Baldwin-Lomax model</div>
+</div>
+<!-- CFD Online addition above -->
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading">Baldwin-Lomax model</h1>
+	<div id="bodyContent">
+		<h3 id="siteSub">From CFD-Wiki</h3>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav">Jump to: <a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#column-one">navigation</a>, <a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#searchInput">search</a></div>
+		<!-- start content -->
+<table class="infobox bordered" style="vertical-align: top; text-align: left;">
+<caption style="background: #ccf; font-size: larger;" align="center"> <b><a href="https://www.cfd-online.com/Wiki/Turbulence_modeling" title="Turbulence modeling">Turbulence modeling</a></b>
+</caption>
+<tbody><tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Turbulence" title="Turbulence" class="mw-redirect">Turbulence</a></b>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/RANS-based_turbulence_models" title="RANS-based turbulence models">RANS-based turbulence models</a></b>
+<ol><li> <i><b><a href="https://www.cfd-online.com/Wiki/Linear_eddy_viscosity_models" title="Linear eddy viscosity models">Linear eddy viscosity models</a></b></i>
+<ol><li> <i><a href="https://www.cfd-online.com/Wiki/Algebraic_turbulence_models" title="Algebraic turbulence models">Algebraic models</a></i>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Cebeci-Smith_model" title="Cebeci-Smith model">Cebeci-Smith model</a>
+</li><li> <strong class="selflink">Baldwin-Lomax model</strong>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Johnson-King_model" title="Johnson-King model">Johnson-King model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/A_roughness-dependent_model" title="A roughness-dependent model">A roughness-dependent model</a>
+</li></ol>
+</li><li> <i><a href="https://www.cfd-online.com/Wiki/One_equation_turbulence_models" title="One equation turbulence models">One equation models</a></i>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Prandtl%27s_one-equation_model" title="Prandtl&#39;s one-equation model">Prandtl's one-equation model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Baldwin-Barth_model" title="Baldwin-Barth model">Baldwin-Barth model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Spalart-Allmaras_model" title="Spalart-Allmaras model">Spalart-Allmaras model</a>
+</li></ol>
+</li><li> <i><a href="https://www.cfd-online.com/Wiki/Two_equation_models" title="Two equation models" class="mw-redirect">Two equation models</a></i>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/K-epsilon_models" title="K-epsilon models">k-epsilon models</a>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Standard_k-epsilon_model" title="Standard k-epsilon model">Standard k-epsilon model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Realisable_k-epsilon_model" title="Realisable k-epsilon model">Realisable k-epsilon model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/RNG_k-epsilon_model" title="RNG k-epsilon model">RNG k-epsilon model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Near-wall_treatment_for_k-epsilon_models" title="Near-wall treatment for k-epsilon models">Near-wall treatment</a>
+</li></ol>
+</li><li> <a href="https://www.cfd-online.com/Wiki/K-omega_models" title="K-omega models">k-omega models</a>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Wilcox%27s_k-omega_model" title="Wilcox&#39;s k-omega model">Wilcox's k-omega model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Wilcox%27s_modified_k-omega_model" title="Wilcox&#39;s modified k-omega model">Wilcox's modified k-omega model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/SST_k-omega_model" title="SST k-omega model">SST k-omega model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Near-wall_treatment_for_k-omega_models" title="Near-wall treatment for k-omega models">Near-wall treatment</a>
+</li></ol>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Two_equation_turbulence_model_constraints_and_limiters" title="Two equation turbulence model constraints and limiters">Realisability issues</a>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Kato-Launder_modification" title="Kato-Launder modification">Kato-Launder modification</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Durbin%27s_realizability_constraint" title="Durbin&#39;s realizability constraint">Durbin's realizability constraint</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Yap_correction" title="Yap correction">Yap correction</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Realisability_and_Schwarz%27_inequality" title="Realisability and Schwarz&#39; inequality">Realisability and Schwarz' inequality</a>
+</li></ol>
+</li></ol>
+</li></ol>
+</li><li> <i><b><a href="https://www.cfd-online.com/Wiki/Nonlinear_eddy_viscosity_models" title="Nonlinear eddy viscosity models">Nonlinear eddy viscosity models</a></b></i>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Explicit_nonlinear_constitutive_relation" title="Explicit nonlinear constitutive relation">Explicit nonlinear constitutive relation</a>
+<ol><li> <a href="https://www.cfd-online.com/W/index.php?title=Cubic_k-epsilon&amp;action=edit&amp;redlink=1" class="new" title="Cubic k-epsilon (page does not exist)">Cubic k-epsilon</a>
+</li><li> <a href="https://www.cfd-online.com/W/index.php?title=Explicit_algebraic_Reynolds_stress_models_(EARSM)&amp;action=edit&amp;redlink=1" class="new" title="Explicit algebraic Reynolds stress models (EARSM) (page does not exist)">EARSM</a>
+</li></ol>
+</li><li> <a href="https://www.cfd-online.com/Wiki/V2-f_models" title="V2-f models">v2-f models</a>
+<ol><li> <img class="tex" alt="\overline{\upsilon^2}-f" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/47c2b2b6178a5b1b177f1a2ec5bdc93a.png"> model
+</li><li> <img class="tex" alt="\zeta-f" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/abcfd9602b60feee32bb06ff51b13caf.png"> model
+</li></ol>
+</li></ol>
+</li><li> <i><b><a href="https://www.cfd-online.com/Wiki/Reynolds_stress_model_(RSM)" title="Reynolds stress model (RSM)">Reynolds stress model (RSM) </a></b></i>
+</li></ol>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Large_eddy_simulation_(LES)" title="Large eddy simulation (LES)">Large eddy simulation (LES) </a></b>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Smagorinsky-Lilly_model" title="Smagorinsky-Lilly model">Smagorinsky-Lilly model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Dynamic_subgrid-scale_model" title="Dynamic subgrid-scale model">Dynamic subgrid-scale model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/RNG-LES_model" title="RNG-LES model">RNG-LES model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Wall-adapting_local_eddy-viscosity_(WALE)_model" title="Wall-adapting local eddy-viscosity (WALE) model">Wall-adapting local eddy-viscosity (WALE) model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Kinetic_energy_subgrid-scale_model" title="Kinetic energy subgrid-scale model">Kinetic energy subgrid-scale model</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Near-wall_treatment_for_LES_models" title="Near-wall treatment for LES models">Near-wall treatment for LES models</a>
+</li></ol>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Detached_eddy_simulation_(DES)" title="Detached eddy simulation (DES)">Detached eddy simulation (DES) </a></b>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Direct_numerical_simulation_(DNS)" title="Direct numerical simulation (DNS)">Direct numerical simulation (DNS) </a></b>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Turbulence_near-wall_modeling" title="Turbulence near-wall modeling">Turbulence near-wall modeling</a></b>
+</td></tr>
+<tr>
+<td> <b><a href="https://www.cfd-online.com/Wiki/Turbulence_free-stream_boundary_conditions" title="Turbulence free-stream boundary conditions">Turbulence free-stream boundary conditions</a></b>
+<ol><li> <a href="https://www.cfd-online.com/Wiki/Turbulence_intensity" title="Turbulence intensity">Turbulence intensity</a>
+</li><li> <a href="https://www.cfd-online.com/Wiki/Turbulence_length_scale" title="Turbulence length scale">Turbulence length scale</a>
+</li></ol>
+</td></tr></tbody></table>
+<p>The Baldwin-Lomax model <a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#References">[Baldwin and Lomax (1978)]</a> is a two-layer algebraic 0-equation model which gives the eddy viscosity, <img class="tex" alt="\mu_t" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/7ca4ada91f232f999bacb7521e7b55a4.png">, as a function of the local boundary layer velocity profile. The model is suitable for high-speed flows with thin attached boundary-layers, typically present in aerospace and turbomachinery applications. It is commonly used in quick design iterations where robustness is more important than capturing all details of the flow physics. The Baldwin-Lomax model is not suitable for cases with large separated regions and significant curvature/rotation effects (see below).
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#Equations"><span class="tocnumber">1</span> <span class="toctext">Equations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#Model_constants"><span class="tocnumber">2</span> <span class="toctext">Model constants</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#Model_variants"><span class="tocnumber">3</span> <span class="toctext">Model variants</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#Performance.2C_applicability_and_limitations"><span class="tocnumber">4</span> <span class="toctext">Performance, applicability and limitations</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#Implementation_issues"><span class="tocnumber">5</span> <span class="toctext">Implementation issues</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td></tr></tbody></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h2> <span class="mw-headline" id="Equations"> Equations </span></h2>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+\mu_t =
+\begin{cases}
+{\mu_t}_{inner} &amp; \mbox{if } y \le y_{crossover} \\ 
+{\mu_t}_{outer} &amp; \mbox{if } y &gt; y_{crossover}
+\end{cases}
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/7cf41218511c275a3e99bc7102ec8e77.png"></dd></dl></td><td width="5%">(1)</td></tr></tbody></table>
+
+<p>Where <img class="tex" alt="y_{crossover}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/142d74a4779fff206565bf39a801e038.png"> is the smallest distance from the surface where <img class="tex" alt="{\mu_t}_{inner}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/25dbc13b06d75bb165e0c883ddf15908.png"> is equal to <img class="tex" alt="{\mu_t}_{outer}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/4864f8d6007e5790562964851f547b98.png">:
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+y_{crossover} = MIN(y) \ : \ {\mu_t}_{inner} = {\mu_t}_{outer}
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/0aea083a70c0228df853cc09fa4d6aa1.png"></dd></dl></td><td width="5%">(2)</td></tr></tbody></table>
+
+<p>The inner region is given by the Prandtl - Van Driest formula:
+</p>
+<table width="70"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+{\mu_t}_{inner} = \rho l^2 \left| \Omega \right|
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/53b46ed6398ab5bc23e63f84f566b189.png"></dd></dl></td><td width="5%">(3)</td></tr></tbody></table>
+
+<p>Where
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+l = k y \left( 1 - e^{\frac{-y^+}{A^+}} \right)
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/8b2fdf530f2552b6bf32417a43a1e79f.png"></dd></dl></td><td width="5%">(4)</td></tr></tbody></table>
+
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+\left| \Omega \right| = \sqrt{2 \Omega_{ij} \Omega_{ij}}
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/99ae36ac6bcb506dd9de94f3ad68fa52.png"></dd></dl></td><td width="5%">(5)</td></tr></tbody></table>
+
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+\Omega_{ij} = \frac{1}{2}
+\left(
+ \frac{\partial u_i}{\partial x_j} -
+ \frac{\partial u_j}{\partial x_i}
+\right)
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/f2a00d9b3ab8d744eee92f2309a91247.png"></dd></dl></td><td width="5%">(6)</td></tr></tbody></table>
+
+<p>The outer region is given by:
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+{\mu_t}_{outer} =  \rho \, K \, C_{CP} \, F_{WAKE} \, F_{KLEB}(y)
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/5e85aaddbe6befa09de8997ec13ad708.png"></dd></dl></td><td width="5%">(7)</td></tr></tbody></table>
+
+<p>Where
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+F_{WAKE} = MIN \left( y_{MAX} \, F_{MAX} \,\,;\,\,
+               C_{WK} \, y_{MAX} \, \frac{u^2_{DIF}}{F_{MAX}} \right)
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/fd7818aa20d2df741dfe0b4b4cc22d86.png"></dd></dl></td><td width="5%">(8)</td></tr></tbody></table>
+
+<p><img class="tex" alt="y_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/302210732041d17cbbccdd9f17f847b4.png"> and <img class="tex" alt="F_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/e50d1d5af533d05c33c58882f5d3d7e7.png"> are determined from the maximum of the function:
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+F(y) = y \left| \Omega \right| \left(1-e^{\frac{-y^+}{A^+}} \right)
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/b702cb19256f3c0dc8aaf1cf5f0897d2.png"></dd></dl></td><td width="5%">(9)</td></tr></tbody></table>
+
+<p><img class="tex" alt="F_{KLEB}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/a913052cb720b577f1a12e0c1630bcda.png"> is the intermittency factor given by:
+</p>
+<table width="70%"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+F_{KLEB}(y) = \left[1 + 5.5 \left( \frac{y \, C_{KLEB}}{y_{MAX}} \right)^6
+  \right]^{-1}
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/9bde77641b7e232fa3e083d3e59795c4.png"></dd></dl></td><td width="5%">(10)</td></tr></tbody></table>
+
+<p><img class="tex" alt="u_{DIF}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/995bebdb3d5d9d47126fe945eb05cade.png"> is the difference between maximum and minimum speed in the profile. For boundary layers the minimum is always set to zero.
+</p>
+<table width="70"><tbody><tr><td>
+<dl><dd><img class="tex" alt="
+u_{DIF} = MAX(\sqrt{u_i u_i}) - MIN(\sqrt{u_i u_i})
+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/70a22d0d0496ef78a10ca0f129624163.png"></dd></dl></td><td width="5%">(11)</td></tr></tbody></table>
+
+<h2> <span class="mw-headline" id="Model_constants"> Model constants </span></h2>
+<p>The table below gives the model constants present in the formulas above. Note that <img class="tex" alt="k" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/8ce4b16b22b58894aa86c421e8759df3.png"> is a constant, and not the turbulence energy, as in other sections. It should also be pointed out that when using the Baldwin-Lomax model the turbulence energy, <img class="tex" alt="k" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/8ce4b16b22b58894aa86c421e8759df3.png">, present in the governing equations, is set to zero.
+</p>
+<table cellpadding="5" cellspacing="1" border="1">
+<tbody><tr>
+  <td><img class="tex" alt="A^+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/24f7196efb1e59b5983541c476d14d82.png"></td>
+  <td><img class="tex" alt="C_{CP}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/1b104c2b896b6d5b97c43f83636068e6.png"></td>
+  <td><img class="tex" alt="C_{KLEB}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/e4c04b3588c377dea4b0f86d61ddb650.png"></td>
+  <td><img class="tex" alt="C_{WK}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/1ca858b8cf395aec4dd85101536ba51b.png"></td>
+  <td><img class="tex" alt="k" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/8ce4b16b22b58894aa86c421e8759df3.png"></td>
+  <td><img class="tex" alt="K" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/a5f3c6a11b03839d46af9fb43c97c188.png"></td>
+</tr>
+<tr>
+  <td>26</td>
+  <td>1.6</td>
+  <td>0.3</td>
+  <td>0.25</td>
+  <td>0.4</td>
+  <td>0.0168</td>
+</tr>
+</tbody></table>
+<p><br>
+</p>
+<h2> <span class="mw-headline" id="Model_variants"> Model variants </span></h2>
+<p>In order to improve the Baldwin-Lomax model modifications of the model-constants can be made in order to account for the effect of adverse pressure gradients. This has been done by Granville and Turner and Jennions. For further information see the references below.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Performance.2C_applicability_and_limitations"> Performance, applicability and limitations </span></h2>
+<p>The Baldwin-Lomax model is suitable for high-speed flows with thin attached boundary layers. Typical applications are aerospace and turbomachinery applications. It is a low-Re model and as such it requires a fairly well-resolved grid near the walls, with the first cell located at <img class="tex" alt="y+ &lt; 1" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/f403d80755b2b58d703eb25869fa9ae4.png">.
+</p><p>The model is popular in quick design-iterations due to its robustness and reliability. It seldom leads to any convergence problems and it seldom gives completely unphysical results.
+</p><p>The Baldwin-Lomax model should be used with great care in cases with large separations. It has been shown by several researchers that the Baldwin-Lomax model tends to overpredict separated regions (see for example the comments made by David Wilcox <a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#References">[Wilcox (1998)]</a>). However, there are ad-hoc modifications which reduce this problem. For instance, prediction of separation is sensitive to the value of the <img class="tex" alt="C_{WK}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/1ca858b8cf395aec4dd85101536ba51b.png"> coefficient and higher values than the original value tend to reduce the problems with too early separation. Also note that the Granville correction mentioned above, which attempts to account for adverse pressure gradient effects, increases the problem with too large separations. 
+</p><p>The Baldwin-Lomax model does not account for the effect of a high free-stream turbulence level. Hence, it can not be used reliably when the free-stream turbulence has a signigicant effect on the boundary layer development.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Implementation_issues"> Implementation issues </span></h2>
+<p>The computation of most of the model looks to relatively straightforward, but upon further examination, a few issues crop up.  First, the model is nonlocal in nature due to the presence of the damping function.  This means that for any location in the flow interior, we need a wall (or other suitable location) to compute a <img class="tex" alt="y^+" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/c6891669746d2d229a8e5956eb41bc25.png"> from.  Further, the calculation of <img class="tex" alt="y_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/302210732041d17cbbccdd9f17f847b4.png"> and <img class="tex" alt="F_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/e50d1d5af533d05c33c58882f5d3d7e7.png"> is best suited to a structured grid in which grid lines emanate outward from a wall (or wakeline, etc.).  The model is thus best used in a structured grid setting, but has been used with unstructured grids via background grids <a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model#References">[Mavriplis (1991)]</a>.  Second, the determination of <img class="tex" alt="y_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/302210732041d17cbbccdd9f17f847b4.png"> and <img class="tex" alt="F_{MAX}" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/e50d1d5af533d05c33c58882f5d3d7e7.png"> is sensitive to gridpoint location, as the vorticity magnitude is typically only available pointwise.  One solution (perhaps with limited justification) is to do a fit of <img class="tex" alt="F" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/800618943025315f869e4e1f09471012.png"> to reduce any problems.  Finally, it is tempting to use the minimum of the two (inner and outer) eddy viscosity results instead of the correct crossover formula.  This simplifies the programming, but is not justifiable on any other grounds (and can lead to the use of the wrong eddy viscosity).  The (minimal) additional programming is required for correct model implementation.
+</p><p><i>We need some further information here about what to think about when implementing this model in a CFD code. For example, there are some issues when computing the max and min values in the formulas - in complex 3D cases you can sometimes find several local mins/maxs. Can anyone add something about this?</i>
+</p>
+<h2> <span class="mw-headline" id="References"> References </span></h2>
+<ul><li> <b>Baldwin, B. S. and Lomax, H. (1978)</b>, "Thin Layer Approximation and Algebraic Model for Separated Turbulent Flows", AIAA Paper 78-257.
+</li><li> <b>Granville, P. S. (1987)</b>, "Baldwin-Lomax Factors for Turbulent Boundary Layers in Pressure Gradients", AIAA Journal, Vol. 25, No. 12, pp. 1624-1627.
+</li><li> <b>Mavriplis, D. J. (1991)</b>, "Algebraic turbulence modeling for unstructured and adaptive meshes", AIAA Journal, Vol. 29, pp. 2086-2093.
+</li><li> <b>Turner, M. G. and Jennions, I. K. (1993)</b>, "An Investigation of Turbulence Modeling in Transonic Fans Including a Novel Implementation of an Implicit <img class="tex" alt="k-\epsilon" src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/1bb2514bd4db7c6a10f1f156378a851c.png"> Turbulence Model", Journal of Turbomachinery, Vol. 115, April, pp. 249-260.
+</li><li> <b>Wilcox, D.C. (1998)</b>, <i>Turbulence Modeling for CFD</i>, <a href="https://www.cfd-online.com/Wiki/Special:BookSources/192872910X" class="internal mw-magiclink-isbn">ISBN 1-928729-10-X</a>, 2nd Ed., DCW Industries, Inc..
+</li></ul>
+<p><br>
+</p>
+<hr>
+<p><i> Return to <a href="https://www.cfd-online.com/Wiki/Turbulence_modeling" title="Turbulence modeling">Turbulence modeling</a> </i>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 443/1000000
+Post-expand include size: 2954/2097152 bytes
+Template argument size: 730/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key cfd-online-wiki:pcache:idhash:1374-0!0!0!!en!2!edit=0 and timestamp 20220418143031 -->
+<div class="printfooter">
+Retrieved from "<a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model">https://www.cfd-online.com/Wiki/Baldwin-Lomax_model</a>"</div>
+		<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="https://www.cfd-online.com/Wiki/Special:Categories" title="Special:Categories">Category</a>: <span dir="ltr"><a href="https://www.cfd-online.com/Wiki/Category:Turbulence_models" title="Category:Turbulence models">Turbulence models</a></span></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="https://www.cfd-online.com/Wiki/Baldwin-Lomax_model" title="View the content page [alt-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="https://www.cfd-online.com/W/index.php?title=Talk:Baldwin-Lomax_model&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="https://www.cfd-online.com/W/index.php?title=Baldwin-Lomax_model&amp;action=edit" title="This page is protected.
+You can view its source [alt-e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="https://www.cfd-online.com/W/index.php?title=Baldwin-Lomax_model&amp;action=history" title="Past revisions of this page [alt-h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>My wiki</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="https://www.cfd-online.com/W/index.php?title=Special:UserLogin&amp;returnto=Baldwin-Lomax_model" title="You are encouraged to log in; however, it is not mandatory [alt-o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+<!-- Removed for CFD Online below
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/Images/cfdonline_logo.gif);" href="/Wiki/Main_Page" title="Visit the main page"></a>
+	</div>
+Removed for CFD Online above -->
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-wiki_navigation">
+		<h5>wiki navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="https://www.cfd-online.com/Wiki/Main_Page" title="Visit the main page [alt-z]" accesskey="z">Main Page</a></li>
+				<li id="n-portal"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-recentchanges"><a href="https://www.cfd-online.com/Wiki/Special:RecentChanges" title="The list of recent changes in the wiki [alt-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-help"><a href="https://www.cfd-online.com/Wiki/Help:Contents" title="The place to find out">Help</a></li>
+				<li id="n-wikiforum"><a href="http://www.cfd-online.com/Forums/cfd-wiki/">Wiki forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">wiki search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="https://www.cfd-online.com/W/index.php" id="searchform">
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="searchInput" title="Search CFD-Wiki" accesskey="f" type="search" name="search">
+				<input type="submit" name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists">&nbsp;
+				<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text">
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>wiki toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="https://www.cfd-online.com/Wiki/Special:WhatLinksHere/Baldwin-Lomax_model" title="List of all wiki pages that link here [alt-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="https://www.cfd-online.com/Wiki/Special:RecentChangesLinked/Baldwin-Lomax_model" title="Recent changes in pages linked from this page [alt-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="https://www.cfd-online.com/Wiki/Special:SpecialPages" title="List of all special pages [alt-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="https://www.cfd-online.com/W/index.php?title=Baldwin-Lomax_model&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="https://www.cfd-online.com/W/index.php?title=Baldwin-Lomax_model&amp;oldid=13693" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki"></a></div>
+	<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="./Baldwin-Lomax model -- CFD-Wiki, the free CFD reference_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"></a></div>
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 3 January 2012, at 09:15.</li>
+		<li id="viewcount">This page has been accessed 110,527 times.</li>
+		<li id="copyright">Content is available under <a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Copyrights" title="CFD-Wiki:Copyrights">GNU Free Documentation License 1.2</a>.</li>
+		<li id="privacy"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:Privacy_policy" title="CFD-Wiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:About" title="CFD-Wiki:About">About CFD-Wiki</a></li>
+		<li id="disclaimer"><a href="https://www.cfd-online.com/Wiki/CFD-Wiki:General_disclaimer" title="CFD-Wiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.139 secs. -->
+</body></html>

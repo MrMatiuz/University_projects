@@ -1,0 +1,724 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"fld_M_2.9_in_out_Y_max.dat"'
+$!VarSet |LFDSVL1| = '"X" "Y" "D" "U" "V" "P" "MU_TURB" "MU_TURB_IN" "MU_TURB_OUT" "Y_max"'
+$!VarSet |LFDSFN2| = '"..\YandexDisk-mate.liparteliani\Kursovaya\4_course\code2019-20\fld.dat"'
+$!VarSet |LFDSVL2| = '"X" "Y" "D" "U" "V" "P" "MU_TURB" "MU_TURB_IN" "MU_TURB_OUT" "Y_max"'
+$!VarSet |LFDSFN3| = '"..\YandexDisk-mate.liparteliani\Kursovaya\5_course\SA угол сжатия\fldSA.plt"'
+$!VarSet |LFDSVL3| = '"X" "Y" "D" "U" "V" "P" "MU_TURB" "MU_TURB_IN" "MU_TURB_OUT" "Y_max" "S"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = Cartesian2D
+  IncludeText = No
+  IncludeGeom = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = Cartesian2D
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!RenameDataSetZone 
+  Zone = 1
+  Name = 'ZONE 6'
+$!RenameDataSetZone 
+  Zone = 2
+  Name = 'ZONE 4'
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 3
+  JRange
+    {
+    Min = 100
+    Max = 100
+    }
+$!AlterData 
+  Equation = '{S} = {P} / ({D}**1.4)'
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 4
+  JRange
+    {
+    Min = 67
+    Max = 67
+    }
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = Cartesian2D
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!AlterData  [5]
+  Equation = '{S} = {P} / ({D}**1.4)'
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = Cartesian2D
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!ActiveFieldMaps  =  [5]
+$!GlobalRGB 
+  RedChannelVar = 3
+  GreenChannelVar = 3
+  BlueChannelVar = 3
+  RangeMin = 0
+  RangeMax = 1
+$!GlobalContour  1
+  Var = 11
+  DefNumLevels = 16
+  ColorCutoff
+    {
+    RangeMin = 1.8341756314
+    RangeMax = 3.52266360819
+    }
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0.989931643009
+      CMax = 4.36690759659
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 1
+  RawData
+16
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+2.4
+2.6
+2.8
+3
+3.2
+3.4
+3.6
+3.8
+4
+$!GlobalContour  2
+  Var = 6
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 2
+  RawData
+17
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+2.4
+2.6
+2.8
+3
+3.2
+3.4
+3.6
+3.8
+4
+4.2
+4.4
+$!GlobalContour  3
+  Var = 7
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 3
+  RawData
+1
+0
+$!GlobalContour  4
+  Var = 8
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 4
+  RawData
+1
+0
+$!GlobalContour  5
+  Var = 9
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 5
+  RawData
+1
+0
+$!GlobalContour  6
+  Var = 10
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 6
+  RawData
+1
+0
+$!GlobalContour  7
+  Var = 11
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 7
+  RawData
+12
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+2.4
+2.6
+2.8
+3
+3.2
+3.4
+$!GlobalContour  8
+  Var = 3
+  ColorMapFilter
+    {
+    ContinuousColor
+      {
+      CMin = 0
+      CMax = 1
+      }
+    }
+$!ContourLevels New
+  ContourGroup = 8
+  RawData
+12
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+2.4
+2.6
+2.8
+$!GlobalTwoDVector 
+  UVar = 4
+  VVar = 5
+  RelativeLength = 0.002
+$!FieldMap  [1]
+  Mesh
+    {
+    Show = No
+    Color = Black
+    }
+  Contour
+    {
+    ContourType = Flood
+    Color = Black
+    UseLightingEffect = Yes
+    }
+  Vector
+    {
+    Color = Black
+    }
+  Scatter
+    {
+    Color = Black
+    }
+  Shade
+    {
+    Color = Custom2
+    }
+  EdgeLayer
+    {
+    Show = Yes
+    Color = Black
+    LineThickness = 0.1
+    }
+  Points
+    {
+    PointsToPlot = SurfaceNodes
+    }
+  Surfaces
+    {
+    SurfacesToPlot = KPlanes
+    IRange
+      {
+      Max = 1
+      }
+    }
+  VolumeMode
+    {
+    VolumeObjectsToPlot
+      {
+      ShowIsosurfaces = No
+      ShowSlices = No
+      ShowStreamtraces = No
+      }
+    }
+  Effects
+    {
+    LightingEffect = Gouraud
+    }
+$!FieldMap  [2]
+  Mesh
+    {
+    Color = Black
+    }
+  Contour
+    {
+    ContourType = Flood
+    Color = Black
+    UseLightingEffect = Yes
+    }
+  Vector
+    {
+    Color = Black
+    }
+  Scatter
+    {
+    Color = Black
+    }
+  Shade
+    {
+    Color = Custom2
+    }
+  EdgeLayer
+    {
+    Show = Yes
+    Color = Black
+    LineThickness = 0.1
+    }
+  Points
+    {
+    PointsToPlot = SurfaceNodes
+    }
+  Surfaces
+    {
+    SurfacesToPlot = KPlanes
+    IRange
+      {
+      Max = 1
+      }
+    }
+  VolumeMode
+    {
+    VolumeObjectsToPlot
+      {
+      ShowIsosurfaces = No
+      ShowSlices = No
+      ShowStreamtraces = No
+      }
+    }
+  Effects
+    {
+    LightingEffect = Gouraud
+    }
+$!FieldMap  [3]
+  Mesh
+    {
+    Color = Black
+    }
+  Contour
+    {
+    ContourType = Flood
+    Color = Black
+    UseLightingEffect = Yes
+    }
+  Vector
+    {
+    Color = Black
+    }
+  Scatter
+    {
+    Color = Black
+    }
+  Shade
+    {
+    Color = Custom2
+    }
+  EdgeLayer
+    {
+    Show = No
+    Color = Black
+    LineThickness = 0.1
+    }
+  Points
+    {
+    PointsToPlot = SurfaceNodes
+    }
+  Surfaces
+    {
+    SurfacesToPlot = None
+    IRange
+      {
+      Max = 1
+      }
+    }
+  VolumeMode
+    {
+    VolumeObjectsToPlot
+      {
+      ShowIsosurfaces = No
+      ShowSlices = No
+      ShowStreamtraces = No
+      }
+    }
+  Effects
+    {
+    LightingEffect = Gouraud
+    }
+$!FieldMap  [4]
+  Mesh
+    {
+    Show = No
+    Color = Black
+    }
+  Contour
+    {
+    ContourType = Flood
+    Color = Black
+    UseLightingEffect = Yes
+    }
+  Vector
+    {
+    Color = Black
+    }
+  Scatter
+    {
+    Color = Black
+    }
+  Shade
+    {
+    Color = Custom2
+    }
+  EdgeLayer
+    {
+    Show = Yes
+    Color = Black
+    LineThickness = 0.1
+    }
+  Points
+    {
+    PointsToPlot = SurfaceNodes
+    }
+  Surfaces
+    {
+    SurfacesToPlot = KPlanes
+    IRange
+      {
+      Max = 1
+      }
+    }
+  VolumeMode
+    {
+    VolumeObjectsToPlot
+      {
+      ShowIsosurfaces = No
+      ShowSlices = No
+      ShowStreamtraces = No
+      }
+    }
+  Effects
+    {
+    LightingEffect = Gouraud
+    }
+$!FieldMap  [5]
+  Mesh
+    {
+    Color = Black
+    }
+  Contour
+    {
+    ContourType = Flood
+    Color = Black
+    UseLightingEffect = Yes
+    }
+  Vector
+    {
+    Color = Black
+    }
+  Scatter
+    {
+    Color = Black
+    }
+  Shade
+    {
+    Color = Custom2
+    }
+  EdgeLayer
+    {
+    Show = Yes
+    Color = Black
+    LineThickness = 0.1
+    }
+  Points
+    {
+    PointsToPlot = SurfaceNodes
+    }
+  Surfaces
+    {
+    SurfacesToPlot = KPlanes
+    IRange
+      {
+      Max = 1
+      }
+    }
+  VolumeMode
+    {
+    VolumeObjectsToPlot
+      {
+      ShowIsosurfaces = No
+      ShowSlices = No
+      ShowStreamtraces = No
+      }
+    }
+  Effects
+    {
+    LightingEffect = Gouraud
+    }
+$!TwoDAxis 
+  XDetail
+    {
+    VarNum = 1
+    }
+  YDetail
+    {
+    VarNum = 2
+    }
+$!View Fit
+$!TwoDAxis 
+  DepXToYRatio = 1
+$!TwoDAxis 
+  XDetail
+    {
+    RangeMin = -0.047869410770210792105
+    RangeMax = 0.034248646867237234059
+    GRSpacing = 0.02
+    }
+$!TwoDAxis 
+  YDetail
+    {
+    RangeMin = -0.014912326054053265389
+    RangeMax = 0.060028005063973377542
+    GRSpacing = 0.01
+    }
+$!IsoSurfaceAttributes  1
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  2
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  3
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  4
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  5
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  6
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  7
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!IsoSurfaceAttributes  8
+  Isovalue1 = 1.8341756314
+  Isovalue2 = 2.6784196198
+  Isovalue3 = 3.52266360819
+$!SliceAttributes  1
+  PrimaryPosition
+    {
+    X = 0
+    Y = 0
+    Z = 0
+    I = 1
+    J = 1
+    K = 1
+    }
+  EdgeLayer
+    {
+    Show = No
+    }
+  SliceConstraint
+    {
+    Include = No
+    Origin
+      {
+      X = 0
+      Y = 0
+      Z = 0
+      }
+    BoxDimension
+      {
+      X = 0
+      Y = 0
+      Z = 0
+      }
+    }
+$!SliceAttributes  2
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  3
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  4
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  5
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  6
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  7
+  EdgeLayer
+    {
+    Show = No
+    }
+$!SliceAttributes  8
+  EdgeLayer
+    {
+    Show = No
+    }
+$!Streamtrace Add
+  StreamType = TwoDLine
+  StreamDirection = Both
+  StartPos
+    {
+    X = -0.0133379026129829
+    Y = 0.003414858536870811
+    }
+$!StreamAttributes 
+  StreamTiming
+    {
+    TimeDelta = 0.00113472442075
+    }
+$!FieldLayers 
+  ShowMesh = No
+  ShowContour = Yes
+  ShowShade = Yes
+$!StreamtraceLayers 
+  Show = Yes
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

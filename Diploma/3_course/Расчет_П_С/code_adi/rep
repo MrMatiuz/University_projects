@@ -1,0 +1,13 @@
+f1.cpp
+f2.cpp
+f3.cpp
+riem_pulsar.cpp
+Создание кода...
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:f1.exe 
+f1.obj 
+f2.obj 
+f3.obj 
+riem_pulsar.obj 

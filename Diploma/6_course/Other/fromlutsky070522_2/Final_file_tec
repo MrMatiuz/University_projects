@@ -1,0 +1,560 @@
+#!MC 1410
+$!VarSet |LFDSFN1| = '"fld1lam.dat"'
+$!VarSet |LFDSVL1| = '"X" "Y" "D" "U" "V" "P" "mum"'
+$!VarSet |LFDSFN2| = '"fld2lam.dat"'
+$!VarSet |LFDSVL2| = '"X" "Y" "D" "U" "V" "P" "mum"'
+$!VarSet |LFDSFN3| = '"fld3lam.dat"'
+$!VarSet |LFDSVL3| = '"X" "Y" "D" "U" "V" "P" "mum"'
+$!VarSet |LFDSFN4| = '"fldsa.dat"'
+$!VarSet |LFDSVL4| = '"X" "Y" "D" "U" "V" "P" "mum"'
+$!SetStyleBase Factory
+$!GlobalPaper 
+  PaperSizeInfo
+    {
+    Letter
+      {
+      Width = 8.5
+      Height = 11
+      LeftHardClipOffset = 0.125
+      RightHardClipOffset = 0.125
+      TopHardClipOffset = 0.125
+      BottomHardClipOffset = 0.125
+      }
+    }
+$!Page 
+  Name = 'Untitled'
+  PaperAttributes
+    {
+    BackgroundColor = White
+    IsTransparent = Yes
+    OrientPortrait = No
+    ShowGrid = Yes
+    ShowRuler = No
+    ShowPaper = No
+    PaperSize = Letter
+    RulerSpacing = OneInch
+    PaperGridSpacing = HalfInch
+    RegionInWorkArea
+      {
+      X1 = 1
+      Y1 = 0.25
+      X2 = 10
+      Y2 = 8.25
+      }
+    }
+### Frame Number 1 ###
+$!ReadDataSet  '|LFDSFN1|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL1|'
+$!RemoveVar |LFDSVL1|
+$!RemoveVar |LFDSFN1|
+$!ReadDataSet  '|LFDSFN2|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL2|'
+$!RemoveVar |LFDSVL2|
+$!RemoveVar |LFDSFN2|
+$!ReadDataSet  '|LFDSFN3|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL3|'
+$!RemoveVar |LFDSVL3|
+$!RemoveVar |LFDSFN3|
+$!ReadDataSet  '|LFDSFN4|'
+  InitialPlotType = XYLine
+  IncludeText = No
+  IncludeGeom = No
+  ReadDataOption = Append
+  ResetStyle = No
+  AssignStrandIDs = Yes
+  VarLoadMode = ByName
+  VarNameList = '|LFDSVL4|'
+$!RemoveVar |LFDSVL4|
+$!RemoveVar |LFDSFN4|
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 5
+  IRange
+    {
+    Max = 70
+    }
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 6
+  IRange
+    {
+    Max = 80
+    }
+$!DeleteZones  [5]
+$!DeleteZones  [5]
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 5
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 6
+  IRange
+    {
+    Min = 65
+    Max = 65
+    }
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 7
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DeleteZones  [6]
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 7
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!DeleteZones  [7]
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 7
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DeleteZones  [7]
+$!DeleteZones  [6]
+$!DeleteZones  [5]
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 5
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DuplicateZones 
+  SourceZones =  [2]
+  DestinationZone = 6
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DuplicateZones 
+  SourceZones =  [3]
+  DestinationZone = 7
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DuplicateZones 
+  SourceZones =  [4]
+  DestinationZone = 8
+  IRange
+    {
+    Min = 70
+    Max = 70
+    }
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 9
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!DuplicateZones 
+  SourceZones =  [2]
+  DestinationZone = 10
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!DuplicateZones 
+  SourceZones =  [3]
+  DestinationZone = 11
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!DuplicateZones 
+  SourceZones =  [4]
+  DestinationZone = 12
+  IRange
+    {
+    Min = 80
+    Max = 80
+    }
+$!RenameDataSetZone 
+  Zone = 5
+  Name = 'lam1'
+$!RenameDataSetZone 
+  Zone = 6
+  Name = 'lam2'
+$!RenameDataSetZone 
+  Zone = 7
+  Name = 'SubZone'
+$!RenameDataSetZone 
+  Zone = 7
+  Name = 'lam3'
+$!RenameDataSetZone 
+  Zone = 8
+  Name = 'turb'
+$!RenameDataSetZone 
+  Zone = 9
+  Name = 'lam1'
+$!RenameDataSetZone 
+  Zone = 10
+  Name = 'lam2'
+$!RenameDataSetZone 
+  Zone = 11
+  Name = 'lam3'
+$!RenameDataSetZone 
+  Zone = 12
+  Name = 'turb'
+$!DuplicateZones 
+  SourceZones =  [1]
+  DestinationZone = 13
+  JRange
+    {
+    Min = 3
+    Max = 3
+    }
+$!DuplicateZones 
+  SourceZones =  [2]
+  DestinationZone = 14
+  JRange
+    {
+    Min = 3
+    Max = 3
+    }
+$!DuplicateZones 
+  SourceZones =  [3]
+  DestinationZone = 15
+  JRange
+    {
+    Min = 3
+    Max = 3
+    }
+$!DuplicateZones 
+  SourceZones =  [4]
+  DestinationZone = 16
+  JRange
+    {
+    Min = 3
+    Max = 3
+    }
+$!RenameDataSetZone 
+  Zone = 13
+  Name = 'lam1'
+$!RenameDataSetZone 
+  Zone = 14
+  Name = 'lam2'
+$!RenameDataSetZone 
+  Zone = 15
+  Name = 'lam3'
+$!RenameDataSetZone 
+  Zone = 16
+  Name = 'turb'
+$!FrameLayout 
+  ShowHeader = No
+  HeaderColor = Red
+  XYPos
+    {
+    X = 1
+    Y = 0.25
+    }
+  Width = 9
+  Height = 8
+$!ThreeDAxis 
+  AspectRatioLimit = 25
+  BoxAspectRatioLimit = 25
+$!PlotType  = XYLine
+$!FrameName  = 'Frame 001'
+$!GlobalTime 
+  SolutionTime = 0
+$!DeleteLineMaps 
+$!ActiveLineMaps  =  [5-8]
+$!GlobalLinePlot 
+  DataLabels
+    {
+    DistanceSkip = 5
+    }
+  Legend
+    {
+    Show = Yes
+    XYPos
+      {
+      X = 97.827
+      Y = 70.461
+      }
+    }
+$!LineMap  [1]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 5
+    XAxisVar = 2
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Red
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+  Indices
+    {
+    IJKLines = J
+    }
+$!LineMap  [2]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 6
+    XAxisVar = 2
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Green
+    }
+  Symbols
+    {
+    Color = Green
+    FillColor = Green
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+  Indices
+    {
+    IJKLines = J
+    }
+$!LineMap  [3]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 7
+    XAxisVar = 2
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Custom46
+    }
+  Symbols
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  BarCharts
+    {
+    Color = Blue
+    FillColor = Blue
+    }
+  ErrorBars
+    {
+    Color = Blue
+    }
+  Indices
+    {
+    IJKLines = J
+    }
+$!LineMap  [4]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 8
+    XAxisVar = 2
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Custom1
+    }
+  Symbols
+    {
+    Color = Custom1
+    FillColor = Custom1
+    }
+  BarCharts
+    {
+    Color = Custom1
+    FillColor = Custom1
+    }
+  ErrorBars
+    {
+    Color = Custom1
+    }
+  Indices
+    {
+    IJKLines = J
+    }
+$!LineMap  [5]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 13
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Red
+    }
+  Symbols
+    {
+    Color = Custom3
+    FillColor = Custom3
+    }
+  BarCharts
+    {
+    Color = Custom3
+    FillColor = Custom3
+    }
+  ErrorBars
+    {
+    Color = Custom3
+    }
+$!LineMap  [6]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 14
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Green
+    }
+  Symbols
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  BarCharts
+    {
+    Color = Purple
+    FillColor = Purple
+    }
+  ErrorBars
+    {
+    Color = Purple
+    }
+$!LineMap  [7]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 15
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Custom46
+    }
+  Symbols
+    {
+    Color = Red
+    FillColor = Red
+    }
+  BarCharts
+    {
+    Color = Red
+    FillColor = Red
+    }
+  ErrorBars
+    {
+    Color = Red
+    }
+$!LineMap  [8]
+  Name = '&ZN&'
+  Assign
+    {
+    Zone = 16
+    XAxisVar = 1
+    YAxisVar = 6
+    }
+  Lines
+    {
+    Color = Custom1
+    }
+  Symbols
+    {
+    Color = Green
+    FillColor = Green
+    }
+  BarCharts
+    {
+    Color = Green
+    FillColor = Green
+    }
+  ErrorBars
+    {
+    Color = Green
+    }
+$!XYLineAxis 
+  DepXToYRatio = 1
+$!XYLineAxis 
+  XDetail 1
+    {
+    RangeMin = -0.60000002384185791016
+    RangeMax = 0.4001000059634446937
+    GRSpacing = 0.2
+    }
+$!XYLineAxis 
+  YDetail 1
+    {
+    RangeMin = 1.0374454259872436523
+    RangeMax = 18.615096059763430958
+    GRSpacing = 2
+    }
+$!FrameControl ActivateByNumber
+  Frame = 1
+$!SetStyleBase Config

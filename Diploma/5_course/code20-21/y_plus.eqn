@@ -1,0 +1,21 @@
+#!MC 1410
+$!AlterData 
+  Equation = '{Mu_ref} = 6 * sqrt(1.4) / 10000000 '
+$!AlterData 
+  Equation = '{Mu_m} = {Mu_ref} * ({P} / {D})**(0.76)'
+$!AlterData 
+  Equation = '{Nu_m} = (({P} / {D})**(0.76)) / {D}'
+$!AlterData 
+  Equation = '{Muef} = {Mu_m} + {MU_TURB}'
+$!AlterData 
+  Equation = '{Uy} = ddy({U}) + 1.07'
+$!AlterData 
+  Equation = '{Tw_t} = {Uy} * {Muef} / {D}'
+$!AlterData 
+  Equation = '{Tw_l} = {Uy} * {Mu_m} / {D}'
+$!AlterData 
+  Equation = '{Nu_star} = sqrt({Tw_t} / {D})'
+$!AlterData 
+  Equation = '{u_plus} = {U} / {Nu_star}'
+$!AlterData 
+  Equation = '{y_plus} = {Nu_star} / {Nu_m}'
