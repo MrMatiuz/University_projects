@@ -9,3 +9,5 @@ It includes:
 3. Implementation of static calculations and modal analysis in the formulation of the problem for linear elasticity.
 
 Result you can see at the end of the file MKE_task.ipynb.
+
+![alt text](https://github.com/MrMatiuz/University_projects/blob/master/MKE_Stress_task/img/fig399.png)
