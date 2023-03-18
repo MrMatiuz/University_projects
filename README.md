@@ -1,1 +1,1 @@
-## Here are presented my projects from Lomonosov Moscow State University
+## Here are presented projects during my studies at Lomonosov Moscow State University
