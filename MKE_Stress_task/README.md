@@ -1,12 +1,12 @@
 # FEM Stress Task
 
-<br>Computing workshop at the Faculty of Mechanics and Mathematics of Lomonosov Moscow State University.</br>
-<br>Here is set of functions for solving problems of linear elasticity by the finite element method (MKE / FEM).</br>
+<br>Computing workshop at the Faculty of Mechanics and Mathematics of Lomonosov Moscow State University. \
+Here is set of functions for solving problems of linear elasticity by the finite element method (MKE / FEM).</br>
 
-It includes:
+<br>It includes:
 1. Implementation of functions for storing information about the grid-splitting the area into finite elements;
 2. Implementation of the functions of interpolation of functions on the grid by its values in the nodes;
-3. Implementation of static calculations and modal analysis in the formulation of the problem for linear elasticity.
+3. Implementation of static calculations and modal analysis in the formulation of the problem for linear elasticity.</br>
 
 <br>Result you can see at the end of the file MKE_task.ipynb.</br>
 
