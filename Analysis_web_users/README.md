@@ -1,6 +1,6 @@
 # Web users activities analytics
 
-<br>Here is presented jypiter notebook with analysis of users activities. We want to indicate users by thier activities. 
+<br>Here is presented jupyter notebook with analysis of users activities. We want to indicate users by thier activities. 
 This can be used for detecting a mailbox cracker by their behavior </br>
 
 Project steps:
